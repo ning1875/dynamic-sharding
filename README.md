@@ -18,6 +18,9 @@
 - 扩容时同时也需要重启所有存量pgw服务
 
 
+# 交流
+## :stuck_out_tongue_closed_eyes:	 对本项目或者对我感兴趣可以+我qq:907974064 
+
 
 ## 使用指南
    
@@ -91,5 +94,3 @@ eg: curl -vvv --request PUT 'http://localhost:8500/v1/agent/service/deregister/1
 
 ```
 
-# 交流
-## 对本项目感兴趣等可以+我qq:907974064
