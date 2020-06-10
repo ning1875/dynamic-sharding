@@ -1,0 +1,16 @@
+
+consul_server:
+  # consul api 地址
+  addr: localhost:8500
+  username:
+  password:
+  # promethues中consul sd中pgw service name
+  register_service_name: pushgateway
+# 服务web addr
+http_listen_addr: :9292
+# pgw信息
+pushgateway:
+  port: 9091
+  servers:
+    - 1.1.1.1
+    - 1.1.1.2
