@@ -1,20 +1,20 @@
-# dynaimc-sharding 
+# dynamic-sharding 
 
 
-![image](https://github.com/ning1875/dynaimc-sharding/blob/master/images/log.jpg)
+![image](https://github.com/ning1875/dynamic-sharding/blob/master/images/log.jpg)
 
 
-`dynaimc-sharding`  基于cosul的service健康坚检测实现一致性哈希环动态分片:
+`dynamic-sharding`  基于cosul的service健康坚检测实现一致性哈希环动态分片:
 一个典型应用场景就是mock pushgateway的 HA(pgw100%的HA实现起来较为困难)
 
 主要解决pgw 单点问题case,实现原理如下: 
 - 
-- dynaimc-sharding服务启动会根据配置文件注册pgw服务到consul中
+- dynamic-sharding服务启动会根据配置文件注册pgw服务到consul中
 - 由consul定时对pgw server做http check
 - push请求会根据请求path做一致性哈希分离 
 - 当多个pgw中实例oom或异常重启,consul会将bad实例标记为down
-- dynaimc-sharding轮询检查实例数量变化,rehash将job分流
-- dynaimc-sharding本身无状态,可启动多个实例作为流量接入层和pgw server之间
+- dynamic-sharding轮询检查实例数量变化,rehash将job分流
+- dynamic-sharding本身无状态,可启动多个实例作为流量接入层和pgw server之间
 - 扩容时同时也需要重启所有存量pgw服务
 
 
@@ -24,15 +24,15 @@
 
 ```
 # build
-$ git clone https://github.com/ning1875/dynaimc-sharding.git
-$ cd  dynaimc-sharding/pkg/ && go build -o dynaimc-sharding main.go 
+$ git clone https://github.com/ning1875/dynamic-sharding.git
+$ cd  dynamic-sharding/pkg/ && go build -o dynamic-sharding main.go 
 
 # 修改配置文件
 补充dynamic-sharding.yml中的信息:
 
 
-# 启动dynaimc-sharding服务
-./dynaimc-sharding --config.file=dynamic-sharding.yml
+# 启动dynamic-sharding服务
+./dynamic-sharding --config.file=dynamic-sharding.yml
 
  
 # 和promtheus集成 
@@ -50,7 +50,7 @@ scrape_configs:
 
 
 
-# 调用方调用 dynaimc-sharding接口即可 
+# 调用方调用 dynamic-sharding接口即可 
 eg: http://localhost:9292/
 
 ```
@@ -71,7 +71,7 @@ eg: 启动了4个pgw实例,其中一个宕机了,过一会儿恢复了,那么它
 
 ### 扩容
 ```c
-修改yml配置文件将pgw servers 调整到扩容后的数量,重启服务dynaimc-sharding 
+修改yml配置文件将pgw servers 调整到扩容后的数量,重启服务dynamic-sharding 
 !! 注意 同时也要重启所有存量pgw服务,不然rehash的job 会持续在原有pgw被prome scrap，而且value不会更新
 
 ```
