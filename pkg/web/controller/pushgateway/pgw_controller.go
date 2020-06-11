@@ -35,8 +35,8 @@ func PushMetricsRedirect(c *gin.Context) {
 	nextUrl := "http://" + node + path
 	log.Printf("[PushMetrics][request_path:%s][redirect_url:%s]", path, nextUrl)
 	//c.Redirect(http.StatusMovedPermanently, nextUrl)
-	//c.Redirect(http.StatusTemporaryRedirect, nextUrl)
-	c.Redirect(http.StatusPermanentRedirect, nextUrl)
+	c.Redirect(http.StatusTemporaryRedirect, nextUrl)
+	//c.Redirect(http.StatusPermanentRedirect, nextUrl)
 	c.Abort()
 
 }
