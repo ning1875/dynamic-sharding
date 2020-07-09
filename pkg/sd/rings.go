@@ -14,7 +14,7 @@ const numberOfReplicas = 500
 
 var (
 	PgwNodeRing    *ConsistentHashNodeRing
-	NodeUpdateChan = make(chan []string)
+	NodeUpdateChan = make(chan []string, 1)
 )
 
 // 一致性哈希环,用于管理服务器节点.
