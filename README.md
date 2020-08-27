@@ -52,7 +52,8 @@ http://pushgateway_addr/metrics/job/<JOB_NAME>/<LABEL_NAME>/<LABEL_VALUE>
 - http://pushgateway_addr/metrics/job/job_a/tag_a/value_b
 ```
 - 当多个pgw中实例oom或异常重启,consul check service会将bad实例标记为down
-- dynamic-sharding轮询检查实例数量变化
+~~- dynamic-sharding轮询检查实例数量变化~~
+- dynamic-sharding 会`Watch` pgw节点数量变化
 - 重新生成哈希环,rehash将job分流
 - 同时promethues使用consul服务发现的pgw实例列表,无需手动变更
 - 采用redirect而不处理请求,简单高效
