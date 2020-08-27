@@ -1,10 +1,12 @@
 package web
 
 import (
-	"dynamic-sharding/pkg/web/controller/pushgateway"
-	"github.com/gin-gonic/gin"
-	"net/http"
 	"time"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+
+	"dynamic-sharding/pkg/web/controller/pushgateway"
 )
 
 func StartGin(port string, r *gin.Engine) error {

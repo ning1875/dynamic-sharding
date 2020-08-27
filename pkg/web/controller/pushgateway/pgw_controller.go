@@ -1,11 +1,12 @@
 package pushgateway
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 
-	"net/http"
 	"dynamic-sharding/pkg/sd"
-	"log"
 )
 
 func PushMetricsGetHash(c *gin.Context) {

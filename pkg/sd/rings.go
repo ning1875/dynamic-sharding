@@ -1,13 +1,15 @@
 package sd
 
 import (
-	"dynamic-sharding/pkg/consistent"
 	"sync"
 	"sort"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
 	"context"
 	"strings"
+
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+
+	"dynamic-sharding/pkg/consistent"
 )
 
 const numberOfReplicas = 500
@@ -81,6 +83,8 @@ func StringSliceEqualBCE(a, b []string) bool {
 }
 
 func RunReshardHashRing(ctx context.Context, logger log.Logger) {
+
+	level.Info(logger).Log("msg", "RunRefreshServiceNode start....")
 	for {
 		select {
 		case nodes := <-NodeUpdateChan:
@@ -91,10 +95,10 @@ func RunReshardHashRing(ctx context.Context, logger log.Logger) {
 			sort.Strings(oldNodes)
 			isEq := StringSliceEqualBCE(nodes, oldNodes)
 			if isEq == false {
-				level.Info(logger).Log("msg", "RunReshardHashRing_node_update_reshard", "oldnodes", strings.Join(oldNodes, ","), "newnodes", strings.Join(nodes, ","), )
+				level.Info(logger).Log("msg", "RunReshardHashRing_node_update_reshard", "old_num", len(oldNodes), "new_num", len(nodes), "oldnodes", strings.Join(oldNodes, ","), "newnodes", strings.Join(nodes, ","), )
 				PgwNodeRing.ReShardRing(nodes)
 			} else {
-				level.Debug(logger).Log("msg", "RunReshardHashRing_node_same", "nodes", strings.Join(nodes, ","))
+				level.Info(logger).Log("msg", "RunReshardHashRing_node_same", "nodes", strings.Join(nodes, ","))
 
 			}
 		case <-ctx.Done():

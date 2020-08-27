@@ -1,8 +1,9 @@
 package config
 
 import (
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
+
+	"gopkg.in/yaml.v2"
 	"github.com/go-kit/kit/log/level"
 	"github.com/go-kit/kit/log"
 )
@@ -44,5 +45,6 @@ func LoadFile(filename string, logger log.Logger) (*Config, error) {
 	if err != nil {
 		level.Error(logger).Log("msg", "parsing YAML file errr...", "error", err)
 	}
+
 	return cfg, nil
 }

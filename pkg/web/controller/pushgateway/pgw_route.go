@@ -1,8 +1,9 @@
 package pushgateway
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func Routes(r *gin.Engine) {
