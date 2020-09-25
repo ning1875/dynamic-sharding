@@ -102,12 +102,12 @@ eg: http://localhost:9292/
 ## 运维指南
 
 ### pgw节点故障 (无需关心) 
-```apple js
+```shell
 eg: 启动了4个pgw实例,其中一个宕机了,则流量从4->3,以此类推
 ```
 
 ### pgw节点恢复 
-```apple js
+```shell
 eg: 启动了4个pgw实例,其中一个宕机了,过一会儿恢复了,那么它会被consul unregister掉
 避免出现和扩容一样的case: 再次rehash的job 会持续在原有pgw被prome scrap，而且value不会更新
 ```
@@ -122,7 +122,7 @@ eg: 启动了4个pgw实例,其中一个宕机了,过一会儿恢复了,那么它
 
 ### 缩容
 
-```apple js
+```shell
 # 方法一
 ## 调用cousul api  
 curl -vvv --request PUT 'http://$cousul_api/v1/agent/service/deregister/$pgw_addr_$pgw_port'
@@ -136,4 +136,36 @@ eg: curl -vvv --request PUT 'http://localhost:8500/v1/agent/service/deregister/1
 ```
 
 
+
+
+### 使用python sdk时遇到的 urllib2.HTTPError: HTTP Error 307: Temporary Redirect 问题
+#### 原因
+- 查看代码得知python sdk在构造pgw实例时使用默认的handler方法，而其没有`follow_redirect`导致的
+```python
+def push_to_gateway(
+ gateway, job, registry, grouping_key=None, timeout=30,
+ handler=default_handler):
+```
+#### 解决方法
+- 使用requests库自定义一个handler，初始化的时候指定
+```python
+def custom_handle(url, method, timeout, headers, data):
+ def handle():
+ h = {}
+ for k, v in headers:
+ h[k] = v
+        if method == 'PUT':
+ resp = requests.put(url, data=data, headers=h, timeout=timeout)
+ elif method == 'POST':
+ resp = requests.post(url, data=data, headers=h, timeout=timeout)
+ elif method == 'DELETE':
+ resp = requests.delete(url, data=data, headers=h, timeout=timeout)
+ else:
+ return
+ if resp.status_code >= 400:
+ raise IOError("error talking to pushgateway: {0} {1}".format(
+ resp.status_code, resp.text))
+ return handle
+ 
+# push_to_gateway(push_addr, job='some_job', registry=r1, handler=custom_handle)
 ```
