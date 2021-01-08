@@ -64,24 +64,30 @@ http://pushgateway_addr/metrics/job/<JOB_NAME>/<LABEL_NAME>/<LABEL_VALUE>
 
 ## 使用指南
    
-
-```c
-build
+> 编译或下载
+```shell script
+# 编译build
 $ git clone https://github.com/ning1875/dynamic-sharding.git
-$ cd  dynamic-sharding/pkg/ && go build -o dynamic-sharding main.go 
+$ cd  dynamic-sharding && make 
+# 下载 ：releases中直接下载tag包
+# 如https://github.com/ning1875/dynamic-sharding/releases/download/v2.0/dynamic-sharding-2.0.linux-amd64.tar.gz
+```
 
+> 修改配置
+```shell script
+# 修改配置文件
+# 补充dynamic-sharding.yml中的信息:
+```
 
-修改配置文件
-补充dynamic-sharding.yml中的信息:
+> 启动dynamic-sharding服务
 
-
-启动dynamic-sharding服务
+```shell script
 ./dynamic-sharding --config.file=dynamic-sharding.yml
-
+```
  
-# 和promtheus集成 
-Add the following text to your promtheus.yaml's scrape_configs section
-
+> 和promtheus集成 
+> Add the following text to your promtheus.yaml's scrape_configs section
+```yaml
 scrape_configs:
   - job_name: pushgateway
     consul_sd_configs:
@@ -94,35 +100,32 @@ scrape_configs:
 
 
 
-# 调用方调用 dynamic-sharding接口即可 
-eg: http://localhost:9292/
+
 
 ```
+> 调用方调用 dynamic-sharding接口即可 eg: http://localhost:9292/
 
 ## 运维指南
 
 ### pgw节点故障 (无需关心) 
-```shell
-eg: 启动了4个pgw实例,其中一个宕机了,则流量从4->3,以此类推
-```
+> eg: 启动了4个pgw实例,其中一个宕机了,则流量从4->3,以此类推
+
 
 ### pgw节点恢复 
-```shell
-eg: 启动了4个pgw实例,其中一个宕机了,过一会儿恢复了,那么它会被consul unregister掉
-避免出现和扩容一样的case: 再次rehash的job 会持续在原有pgw被prome scrap，而且value不会更新
-```
+> eg: 启动了4个pgw实例,其中一个宕机了,过一会儿恢复了,那么它会被consul unregister掉
+> 避免出现和扩容一样的case: 再次rehash的job 会持续在原有pgw被prome scrap，而且value不会更新
+
 
 
 ### 扩容
-```c
-修改yml配置文件将pgw servers 调整到扩容后的数量,重启服务dynamic-sharding 
-!! 注意 同时也要重启所有存量pgw服务,不然rehash的job 会持续在原有pgw被prome scrap，而且value不会更新
+> 修改yml配置文件将pgw servers 调整到扩容后的数量,重启服务dynamic-sharding 
+> 注意 同时也要重启所有存量pgw服务,不然rehash的job 会持续在原有pgw被prome scrap，而且value不会更新
 
-```
+
 
 ### 缩容
 
-```shell
+```shell script
 # 方法一
 ## 调用cousul api  
 curl -vvv --request PUT 'http://$cousul_api/v1/agent/service/deregister/$pgw_addr_$pgw_port'
@@ -141,31 +144,34 @@ eg: curl -vvv --request PUT 'http://localhost:8500/v1/agent/service/deregister/1
 ### 使用python sdk时遇到的 urllib2.HTTPError: HTTP Error 307: Temporary Redirect 问题
 #### 原因
 - 查看代码得知python sdk在构造pgw实例时使用默认的handler方法，而其没有`follow_redirect`导致的
+
 ```python
-def push_to_gateway(
- gateway, job, registry, grouping_key=None, timeout=30,
- handler=default_handler):
+def push_to_gateway(gateway, job, registry, grouping_key=None, timeout=30,handler=default_handler):
 ```
+
 #### 解决方法
+
 - 使用requests库自定义一个handler，初始化的时候指定
+
 ```python
 def custom_handle(url, method, timeout, headers, data):
- def handle():
- h = {}
- for k, v in headers:
- h[k] = v
-        if method == 'PUT':
- resp = requests.put(url, data=data, headers=h, timeout=timeout)
- elif method == 'POST':
- resp = requests.post(url, data=data, headers=h, timeout=timeout)
- elif method == 'DELETE':
- resp = requests.delete(url, data=data, headers=h, timeout=timeout)
- else:
- return
- if resp.status_code >= 400:
- raise IOError("error talking to pushgateway: {0} {1}".format(
- resp.status_code, resp.text))
- return handle
+    def handle():
+         h = {}
+         for k, v in headers:
+            h[k] = v
+         if method == 'PUT':
+            resp = requests.put(url, data=data, headers=h, timeout=timeout)
+         elif method == 'POST':
+            resp = requests.post(url, data=data, headers=h, timeout=timeout)
+         elif method == 'DELETE':
+            resp = requests.delete(url, data=data, headers=h, timeout=timeout)
+         else:
+            return
+         if resp.status_code >= 400:
+            raise IOError("error talking to pushgateway: {0} {1}".format(resp.status_code, resp.text))
+    return handle
  
 # push_to_gateway(push_addr, job='some_job', registry=r1, handler=custom_handle)
 ```
+
+

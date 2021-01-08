@@ -1,4 +1,3 @@
-
 consul_server:
   # consul api 地址
   addr: localhost:8500
@@ -8,9 +7,11 @@ consul_server:
   register_service_name: pushgateway
 # 服务web addr
 http_listen_addr: :9292
-# pgw信息
+# pushgateway 信息
 pushgateway:
+  # 端口号
   port: 9091
+  # pushgateway ip列表
   servers:
     - 1.1.1.1
     - 1.1.1.2
