@@ -14,6 +14,7 @@ http://pushgateway_addr/metrics/job/<JOB_NAME>/<LABEL_NAME>/<LABEL_VALUE>
 # pgw单点问题
 ## 如果简单把pgw挂在lb后面的问题
 - lb后面rr轮询:如果不加控制的让push数据随机打到多个pushgateway实例上,prometheus无差别scrape会导致数据错乱,表现如下
+
 ![image](https://github.com/ning1875/dynamic-sharding/blob/master/images/pgw_miss.png)
 ![image](https://github.com/ning1875/dynamic-sharding/blob/master/images/pgw_miss2.png)
 - 根本原因是在t1时刻 指标的值为10 t2时刻 值为20
