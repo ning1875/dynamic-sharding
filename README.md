@@ -1,5 +1,8 @@
+# 架构图
+![image](./images/dynamic-sharding架构图.jpg)
 # pgw是什么
 [项目介绍](https://github.com/prometheus/pushgateway)
+
 ## pgw打点特点
 
 - 没有使用grouping对应的接口uri为 
@@ -15,8 +18,8 @@ http://pushgateway_addr/metrics/job/<JOB_NAME>/<LABEL_NAME>/<LABEL_VALUE>
 ## 如果简单把pgw挂在lb后面的问题
 - lb后面rr轮询:如果不加控制的让push数据随机打到多个pushgateway实例上,prometheus无差别scrape会导致数据错乱,表现如下
 
-![image](https://github.com/ning1875/dynamic-sharding/blob/master/images/pgw_miss.png)
-![image](https://github.com/ning1875/dynamic-sharding/blob/master/images/pgw_miss2.png)
+![image](./images/pgw_miss.png)
+![image](./images/pgw_miss2.png)
 - 根本原因是在t1时刻 指标的值为10 t2时刻 值为20
 - t1时刻轮询打点到了pgw-a上 t2时刻打点到了pgw-b上
 - 而promethues采集的时候两边全都采集导致本应该一直上升的值呈锯齿状
@@ -38,8 +41,9 @@ http://pushgateway_addr/metrics/job/<JOB_NAME>/<LABEL_NAME>/<LABEL_VALUE>
 
 ```
 - 结果是可以做到哈希分流,但无法解决某个pgw实例挂掉,哈希到这个实例上面的请求失败问题
+
 ## 解决方案是: 动态一致性哈希分流+consul service_check
-![image](https://github.com/ning1875/dynamic-sharding/blob/master/images/log.jpg)
+![image](./images/log.jpg)
 - dynamic-sharding服务启动会根据配置文件注册pgw服务到consul中
 - 由consul定时对pgw server做http check
 - push请求会根据请求path做一致性哈希分离,eg:
@@ -98,10 +102,6 @@ scrape_configs:
     relabel_configs:
     - source_labels:  ["__meta_consul_dc"]
       target_label: "dc"
-
-
-
-
 
 ```
 > 调用方调用 dynamic-sharding接口即可 eg: http://localhost:9292/
