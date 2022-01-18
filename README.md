@@ -1,5 +1,20 @@
-# 课程地址
-- [prometheus全组件配置调优实战，一线大厂监控高可用方案分享](https://ke.qq.com/course/3549215?tuin=361e95b0)
+# k8s教程说明
+- [k8s底层原理和源码讲解之精华篇](https://ke.qq.com/course/4093533)
+- [k8s底层原理和源码讲解之进阶篇](https://ke.qq.com/course/4236389)
+
+# prometheus全组件的教程
+
+- [01_prometheus全组件配置使用、底层原理解析、高可用实战](https://ke.qq.com/course/3549215?tuin=361e95b0)
+- [02_prometheus-thanos使用和源码解读](https://ke.qq.com/course/3883439?tuin=361e95b0)
+- [03_kube-prometheus和prometheus-operator实战和原理介绍](https://ke.qq.com/course/3912017?tuin=361e95b0)
+- [04_prometheus源码讲解和二次开发](https://ke.qq.com/course/4236995?tuin=361e95b0)
+
+
+# 关于白嫖和付费
+- 白嫖当然没关系，我已经贡献了很多文章和开源项目，当然还有免费的视频
+- 但是客观的讲，如果你能力超强是可以一直白嫖的，可以看源码。什么问题都可以解决
+- 看似免费的资料很多，但大部分都是边角料，核心的东西不会免费，更不会有大神给你答疑
+- thanos和kube-prometheus如果你对prometheus源码把控很好的话，再加上k8s知识的话就觉得不难了
 
 # 架构图
 ![image](./images/dynamic-sharding架构图.jpg)
