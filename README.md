@@ -3,11 +3,14 @@
 - [k8s底层原理和源码讲解之进阶篇](https://ke.qq.com/course/4236389)
 
 # prometheus全组件的教程
+- [01_prometheus全组件配置使用、底层原理解析、高可用实战](https://ke.qq.com/course/3549215)
+- [02_prometheus-thanos使用和源码解读](https://ke.qq.com/course/3883439)
+- [03_kube-prometheus和prometheus-operator实战和原理介绍](https://ke.qq.com/course/3912017)
+- [04_prometheus源码讲解和二次开发](https://ke.qq.com/course/4236995)
 
-- [01_prometheus全组件配置使用、底层原理解析、高可用实战](https://ke.qq.com/course/3549215?tuin=361e95b0)
-- [02_prometheus-thanos使用和源码解读](https://ke.qq.com/course/3883439?tuin=361e95b0)
-- [03_kube-prometheus和prometheus-operator实战和原理介绍](https://ke.qq.com/course/3912017?tuin=361e95b0)
-- [04_prometheus源码讲解和二次开发](https://ke.qq.com/course/4236995?tuin=361e95b0)
+# go语言课程
+- [golang基础课程](https://ke.qq.com/course/4334898)
+- [golang运维平台实战，服务树,日志监控，任务执行，分布式探测](https://ke.qq.com/course/4334675)
 
 
 # 关于白嫖和付费
