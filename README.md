@@ -1,6 +1,9 @@
 # k8s教程说明
 - [k8s底层原理和源码讲解之精华篇](https://ke.qq.com/course/4093533)
 - [k8s底层原理和源码讲解之进阶篇](https://ke.qq.com/course/4236389)
+- [k8s纯源码解读课程，助力你变成k8s专家](https://ke.qq.com/course/4697341)
+- [k8s-operator和crd实战开发 助你成为k8s专家](https://ke.qq.com/course/5458555)
+- [tekton全流水线实战和pipeline运行原理源码解读](https://ke.qq.com/course/5467720)
 
 # prometheus全组件的教程
 - [01_prometheus全组件配置使用、底层原理解析、高可用实战](https://ke.qq.com/course/3549215)
