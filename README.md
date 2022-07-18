@@ -5,6 +5,9 @@
 - [k8s-operator和crd实战开发 助你成为k8s专家](https://ke.qq.com/course/5458555)
 - [tekton全流水线实战和pipeline运行原理源码解读](https://ke.qq.com/course/5467720)
 
+# k8s运维大师课程
+- [k8s运维大师课程](https://ke.qq.com/course/5586848)
+
 # prometheus全组件的教程
 - [01_prometheus全组件配置使用、底层原理解析、高可用实战](https://ke.qq.com/course/3549215)
 - [02_prometheus-thanos使用和源码解读](https://ke.qq.com/course/3883439)
