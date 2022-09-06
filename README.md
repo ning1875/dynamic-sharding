@@ -1,12 +1,16 @@
-# k8s教程说明
+# k8s纯源码解读教程(3个课程内容合成一个大课程)
 - [k8s底层原理和源码讲解之精华篇](https://ke.qq.com/course/4093533)
 - [k8s底层原理和源码讲解之进阶篇](https://ke.qq.com/course/4236389)
 - [k8s纯源码解读课程，助力你变成k8s专家](https://ke.qq.com/course/4697341)
-- [k8s-operator和crd实战开发 助你成为k8s专家](https://ke.qq.com/course/5458555)
+
+
+# k8s运维进阶调优课程
+- [k8s运维大师课程](https://ke.qq.com/course/5586848)
 - [tekton全流水线实战和pipeline运行原理源码解读](https://ke.qq.com/course/5467720)
 
-# k8s运维大师课程
-- [k8s运维大师课程](https://ke.qq.com/course/5586848)
+# k8s二次开发课程
+- [k8s二次开发之基于真实负载的调度器](https://ke.qq.com/course/5814034)
+- [k8s-operator和crd实战开发 助你成为k8s专家](https://ke.qq.com/course/5458555)
 
 # prometheus全组件的教程
 - [01_prometheus全组件配置使用、底层原理解析、高可用实战](https://ke.qq.com/course/3549215)
@@ -17,6 +21,10 @@
 # go语言课程
 - [golang基础课程](https://ke.qq.com/course/4334898)
 - [golang运维平台实战，服务树,日志监控，任务执行，分布式探测](https://ke.qq.com/course/4334675)
+- [golang运维开发实战课程之k8s巡检平台](https://ke.qq.com/course/5818923)
+
+# 直播答疑sre职业发展规划
+- [k8s-prometheus课程答疑和运维开发职业发展规划](https://ke.qq.com/course/5506477)
 
 
 # 关于白嫖和付费
