@@ -1,27 +1,53 @@
-# k8s纯源码解读教程(3个课程内容合成一个大课程)
-- [k8s底层原理和源码讲解之精华篇](https://ke.qq.com/course/4093533)
-- [k8s底层原理和源码讲解之进阶篇](https://ke.qq.com/course/4236389)
-- [k8s纯源码解读课程，助力你变成k8s专家](https://ke.qq.com/course/4697341)
+
+# k8s从零基础入门到专家到运维大师
+
+| 学习方向                     | 分析进阶视频  | 教程地址       | 备注  | 
+|--------------------------|---------|------------|-----|
+| 01_k8s零基础入门实战            | [地址](https://www.bilibili.com/video/BV1Mt4y1P7bL/)  | 	[地址](https://ke.qq.com/course/5829699)    |     |  
+| 02_k8s纯源码解读课程，助力你变成k8s专家 | [地址](https://www.bilibili.com/video/BV1or4y1877p/)  | 	[地址](https://ke.qq.com/course/4697341)    |     |  
+| 03_k8s底层原理和源码讲解之精华篇      | [地址](https://www.bilibili.com/video/BV1T34y127gU/)  | 	[地址](https://ke.qq.com/course/4093533)    |     |  
+| 04_k8s底层原理和源码讲解之进阶篇      | [地址](https://www.bilibili.com/video/BV1si4y1f7Xo/)  | 	[地址](https://ke.qq.com/course/4236389)    |     |  
 
 
-# k8s运维进阶调优课程
-- [k8s运维大师课程](https://ke.qq.com/course/5586848)
-- [tekton全流水线实战和pipeline运行原理源码解读](https://ke.qq.com/course/5467720)
+# k8s 开发篇
 
-# k8s二次开发课程
-- [k8s二次开发之基于真实负载的调度器](https://ke.qq.com/course/5814034)
-- [k8s-operator和crd实战开发 助你成为k8s专家](https://ke.qq.com/course/5458555)
 
-# prometheus全组件的教程
-- [01_prometheus全组件配置使用、底层原理解析、高可用实战](https://ke.qq.com/course/3549215)
-- [02_prometheus-thanos使用和源码解读](https://ke.qq.com/course/3883439)
-- [03_kube-prometheus和prometheus-operator实战和原理介绍](https://ke.qq.com/course/3912017)
-- [04_prometheus源码讲解和二次开发](https://ke.qq.com/course/4236995)
+| 学习方向                              | 分析进阶视频  | 教程地址       | 备注  | 
+|-----------------------------------|---------|------------|-----|
+| 01_k8s运维大师课程                      | [地址](https://www.bilibili.com/video/BV11B4y1k7LB/)  | 	[地址](https://ke.qq.com/course/5586848)    |     |  
+| 02_k8s-operator和crd实战开发 助你成为k8s专家 | [地址](https://www.bilibili.com/video/BV1cv4y1371X/)  | 	[地址](https://ke.qq.com/course/5458555)    |     |  
+| 02_k8s二次开发之基于真实负载的调度器 | [地址](https://www.bilibili.com/video/BV1qB4y1G7Kf/)  | 	[地址](https://ke.qq.com/course/5814034)    |     |  
 
-# go语言课程
-- [golang基础课程](https://ke.qq.com/course/4334898)
-- [golang运维平台实战，服务树,日志监控，任务执行，分布式探测](https://ke.qq.com/course/4334675)
-- [golang运维开发实战课程之k8s巡检平台](https://ke.qq.com/course/5818923)
+
+
+# prometheus监控从入门到专家之路
+
+| 学习方向                                           | 分析进阶视频  | 教程地址       | 备注  | 
+|------------------------------------------------|---------|------------|-----|
+| 01_prometheus零基础入门，grafana基础操作，主流exporter采集配置	 | [地址](https://www.bilibili.com/video/BV1814y1e73y/)  | 	[地址](https://ke.qq.com/course/5826832)    |     |  
+| 02_prometheus全组件配置使用、底层原理解析、高可用实战	             | [地址](https://www.bilibili.com/video/BV1oZ4y1f7au/)  | 	[地址](https://ke.qq.com/course/3549215)    |     |  
+| 03_kube-prometheus和prometheus-operator实战和原理介绍	 | [地址](https://www.bilibili.com/video/BV1LR4y1L7jV/)  | 	[地址](https://ke.qq.com/course/3912017)    |     |  
+| 04_prometheus-thanos使用和源码解读                    | [地址](https://www.bilibili.com/video/BV1814y1e73y/)  | 	[地址](https://ke.qq.com/course/3883439)    |     |  
+| 05_prometheus源码讲解和二次开发                    | [地址](https://www.bilibili.com/video/BV1hS4y1m73Q/)  | 	[地址](https://ke.qq.com/course/4236995)    |     |  
+
+
+# golang运维开发之从0基础到运维平台
+
+| 学习方向                                           | 分析进阶视频  | 教程地址       | 备注  | 
+|------------------------------------------------|---------|------------|-----|
+| 01_golang基础课程 | [地址](https://www.bilibili.com/video/BV1WT411M7Gh/)  | 	[地址](https://ke.qq.com/course/4334898)    |     |  
+| 02_golang运维平台实战，服务树,日志监控，任务执行，分布式探测	             | [地址](https://www.bilibili.com/video/BV14T4y1k7oo)  | 	[地址](https://ke.qq.com/course/4334675)    |     |  
+| 03_golang运维开发实战课程之k8s巡检平台]	 | [地址](https://www.bilibili.com/video/BV1Ad4y1r7C4/)  | 	[地址](https://ke.qq.com/course/5818923)    |     |  
+
+
+# cicd实战
+
+| 学习方向                                           | 分析进阶视频  | 教程地址       | 备注  | 
+|------------------------------------------------|---------|------------|-----|
+| 01_tekton全流水线实战和pipeline运行原理源码解读 | [地址](https://www.bilibili.com/video/BV13P4y1Z7Xv/)  | 	[地址](https://ke.qq.com/course/5458555)    |     |  
+
+
+
 
 # 直播答疑sre职业发展规划
 - [k8s-prometheus课程答疑和运维开发职业发展规划](https://ke.qq.com/course/5506477)
