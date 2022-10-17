@@ -9,6 +9,19 @@
 | 04_k8s底层原理和源码讲解之进阶篇      | [地址](https://www.bilibili.com/video/BV1si4y1f7Xo/)  | 	[地址](https://ke.qq.com/course/4236389)    |     |  
 
 
+# 01 新手课程
+- k8s零基础买这个课，只需有linux基础就能学。玩转k8s集群常用的监控/日志/控制台等组件 https://ke.qq.com/course/5829699
+- k8s中的prometheus监控实战和底层原理讲解 https://ke.qq.com/course/5837369
+# 02 源码解读课程
+- k8s源码解读看这3个课，合在一起是个大课，没有顺序
+- https://ke.qq.com/course/4697341
+- https://ke.qq.com/course/4093533
+- https://ke.qq.com/course/4236389
+# 03 进阶二开课程 
+- 偏k8s二次开发 k8s-operator和crd实战开发 https://ke.qq.com/course/5458555
+- k8s运维大师课程是 真实高并发k8s集群调优，疑难杂症解决和一些工具的开发   https://ke.qq.com/course/5586848
+- k8s二次开发之基于真实负载的调度器 https://ke.qq.com/course/5814034
+
 # k8s 开发篇
 
 
