@@ -3,7 +3,7 @@ module dynamic-sharding
 go 1.13
 
 require (
-	github.com/gin-gonic/gin v1.7.0
+	github.com/gin-gonic/gin v1.9.0
 	github.com/go-kit/kit v0.10.0
 	github.com/hashicorp/consul/api v1.3.0
 	github.com/oklog/run v1.1.0
